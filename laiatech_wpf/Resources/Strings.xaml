@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:laiatech_wpf"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <x:Array x:Key="SettingsComboBoxItems" Type="sys:String">
+        <sys:String>Disabled</sys:String>
+        <sys:String>Every 0.5 seconds</sys:String>
+        <sys:String>Every 1 second</sys:String>
+        <sys:String>Every 2 seconds</sys:String>
+        <sys:String>Every 3 seconds</sys:String>
+    </x:Array>
+    <x:Array x:Key="ExposureModeItems" Type="sys:String">
+        <sys:String>Manual</sys:String>
+        <sys:String>Auto</sys:String>
+    </x:Array>
+    <x:Array x:Key="PowerLineFreqItems" Type="sys:String">
+        <sys:String>Disabled</sys:String>
+        <sys:String>50 Hz</sys:String>
+        <sys:String>60 Hz</sys:String>
+        <sys:String>Auto</sys:String>
+    </x:Array>
+    <x:Array x:Key="BacklightCompItems" Type="sys:String">
+        <sys:String>Off</sys:String>
+        <sys:String>On</sys:String>
+    </x:Array>
+    <sys:String x:Key="DayModeButtonText">Night Mode</sys:String>
+</ResourceDictionary>

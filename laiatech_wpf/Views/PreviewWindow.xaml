@@ -1,0 +1,125 @@
+﻿<Window x:Class="laiatech_wpf.PreviewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laiatech_wpf"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" 
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        FocusVisualStyle="{x:Null}"
+        Title="Camera Preview"
+        Height="800" Width="600">
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition/>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="40" Height="38">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"  />
+                <ColumnDefinition />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" 
+                   Source="{DynamicResource LogoImage}" 
+                   HorizontalAlignment="Left"/>
+            <Border Grid.Column="1" 
+                    CornerRadius="20" 
+                    BorderBrush="#242424"  
+                    Background="White" 
+                    BorderThickness="2"
+                    HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Camera Auto Settings" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                    <Button Background="{DynamicResource SettingsButtonBackgroundBrush}" x:Name="settingsButton" Click="settingsButton_Click" Height="34" Width="40" BorderThickness="0" Focusable="False">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15" />
+                                <Setter Property="BorderBrush" Value="#242424" />
+                            </Style>
+                        </Button.Resources>
+                        <StackPanel>
+                            <Image Stretch="Uniform" Source="/laiatech_wpf;component/Images/settings.png" Height="20" Width="20"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <Button Grid.Column="2" 
+                    FlowDirection="RightToLeft"
+                    HorizontalAlignment="Right"
+                    Background="{DynamicResource DayModeButtonBackgroundBrush}"
+                    BorderThickness="0"
+                    Name="dayModeButton"
+                    Click="dayModeButton_Click"
+                    Focusable="False"
+                    Width="120">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{DynamicResource DayModeButtonImage}" Stretch="Uniform" Width="20" Height="20" />
+                        <TextBlock Padding="10 0 0 0" Foreground="{DynamicResource DayModeButtonForegroundBrush}" Text="{DynamicResource DayModeButtonText}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" Margin="40 0 40 0">
+            <WindowsFormsHost Name="cameraView" Width="480" Height="320" Background="Black">
+                <wf:Panel x:Name="cameraViewPanel" />
+            </WindowsFormsHost>
+        </Grid>
+        <Grid Grid.Row="2" Margin="40 40 40 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <CheckBox Grid.Column="0" Content="Auto Focus" FontWeight="Bold" HorizontalAlignment="Left" Name="autoFocusCheckBox" Foreground="{DynamicResource LabelForegroundBrush}" Checked="autoFocusCheckBox_Checked" Unchecked="autoFocusCheckBox_Unchecked" />
+            <RadioButton Grid.Column="1" Content="Backlight Compensation" HorizontalAlignment="Right" Visibility="Hidden"  />
+        </Grid>
+        <Grid Grid.Row="3" Margin="40 0 40 40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="43" />
+                <ColumnDefinition Width="57"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Focus" Grid.ColumnSpan="3" VerticalAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource LabelForegroundBrush}" Margin="0,6" />
+            <Label Grid.Row="1" Grid.Column="0" Content="Zoom" Grid.ColumnSpan="3" VerticalAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource LabelForegroundBrush}" Margin="0,6" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Pan" Grid.ColumnSpan="3" VerticalAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource LabelForegroundBrush}" Margin="0,6" />
+            <Label Grid.Row="3" Grid.Column="0" Content="Tilt" Grid.ColumnSpan="3" VerticalAlignment="Center" FontWeight="Bold" Foreground="{DynamicResource LabelForegroundBrush}" Margin="0,6" />
+            <Slider Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Name="focusSlider" Margin="0,4" FontWeight="Bold" Foreground="#242424" />
+            <Slider Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" Name="zoomSlider" Margin="0,4" FontWeight="Bold" Foreground="#242424"/>
+            <Slider Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Name="panSlider" Margin="0,4" FontWeight="Bold" Foreground="#242424"/>
+            <Slider Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Name="tiltSlider" Margin="0,4" FontWeight="Bold" Foreground="#242424"/>
+        </Grid>
+        <Grid Grid.Row="4" Margin="0 0 0 40">
+            <Button Content="Set to default" 
+                    HorizontalAlignment="Center"
+                    Padding="10"
+                    Width="200"
+                    Background="White"
+                    Name="setDefButton"
+                    Click="setDefButton_Click"
+                    Focusable="False">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        <StackPanel HorizontalAlignment="Left" Height="100" Margin="458,102,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

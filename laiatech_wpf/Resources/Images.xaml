@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:laiatech_wpf">
+    <BitmapImage x:Key="DayModeButtonImage" UriSource="/laiatech_wpf;component/Images/night_mode.png" />
+    <BitmapImage x:Key="LogoImage" UriSource="/laiatech_wpf;component/Images/laia_logo.png" />
+</ResourceDictionary>

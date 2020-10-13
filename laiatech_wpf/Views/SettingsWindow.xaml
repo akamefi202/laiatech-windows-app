@@ -1,0 +1,257 @@
+﻿ <Window x:Class="laiatech_wpf.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:laiatech_wpf"
+        xmlns:control = "clr-namespace:laiatech_wpf" 
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize" 
+        Title="Camera Settings" Height="800" Width="600">
+    <Grid Background="{DynamicResource BackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition Height="AUTO" />
+            <RowDefinition />
+            <RowDefinition Height="AUTO" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="40" Height="38">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="120" />
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="{DynamicResource LogoImage}" />
+            <Border Grid.Column="1" 
+                    CornerRadius="20" 
+                    BorderBrush="#242424" 
+                    Background="White" 
+                    BorderThickness="2"
+                    HorizontalAlignment="Center">
+                <Label Content="Camera Auto Settings" VerticalAlignment="Center" Margin="20 0 20 0"/>
+            </Border>
+            <Button Grid.Column="2" 
+                    FlowDirection="RightToLeft"
+                    HorizontalAlignment="Right"
+                    Name="dayModeButton" 
+                    Click="dayModeButton_Click" 
+                    BorderThickness="0"
+                    Focusable="False"
+                    Background="{DynamicResource DayModeButtonBackgroundBrush}"
+                    Width="120 ">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{DynamicResource DayModeButtonImage}" Stretch="Uniform" Width="20" Height="20" />
+                        <TextBlock Padding="10 0 0  0" Foreground="{DynamicResource DayModeButtonForegroundBrush}" Text="{DynamicResource DayModeButtonText}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1" Margin="40 0 40 20">
+            <ComboBox Name="cameraComboBox" SelectionChanged="cameraComboBox_SelectionChanged" />
+        </Grid>
+        <Grid Grid.Row="2" Margin="40 0 40 0">
+            <TabControl Background="{DynamicResource BackgroundBrush}" BorderBrush="Transparent">
+                <TabItem Header="Basic">
+                    <Grid Background="{DynamicResource BackgroundBrush}" Margin="0 20 0 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="120" />
+                            <ColumnDefinition Width="20*" />
+                            <ColumnDefinition Width="67*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="0" Grid.Row="0" Content="Auto Exposure Mode" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Foreground="{DynamicResource LabelForegroundBrush}"/>
+                        <control:Selection Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Props="Manual*Auto" x:Name="expoModeSelection" HorizontalAlignment="Center" />
+                        <Border Grid.Column="0" Grid.Row="2" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/clock.png" Stretch="Uniform" Width="15" Height="15" />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="4" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/gain.png" Stretch="Uniform" Width="15" Height="15" />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="6" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/brightness.png" Stretch="Uniform" Width="15" Height="15" />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="8" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/contrast.png" Stretch="Uniform" Width="15" Height="15" />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="10" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/saturation.png" Stretch="Uniform" Width="15" Height="15"  />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="12" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/sharp.png" Stretch="Uniform" Width="15" Height="15"  />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="14" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/gamma.png" Stretch="Uniform" Width="15" Height="15"  />
+                        </Border>
+                        <Border Grid.Column="0" Grid.Row="16" Background="#242424" CornerRadius="10" Padding="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Image Source="/laiatech_wpf;component/Images/white_balance.png" Stretch="Uniform" Width="15" Height="15"  />
+                        </Border>
+                        <Label Grid.Column="1" Grid.Row="2" Content="Exposure Time" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="4" Content="Gain" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="6" Content="Brightness" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="8" Content="Contrast" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="10" Content="Saturation" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="12" Content="Sharpness" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="14" Content="Gamma" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Label Grid.Column="1" Grid.Row="16" Content="White Balance" Foreground="{DynamicResource LabelForegroundBrush}" VerticalAlignment="Center" Margin="0,2" />
+                        <Slider Grid.Column="2" Grid.Row="2" Name="expoSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="4" Name="gainSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="6" Name="brightSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="8" Name="contSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="10" Name="saturSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="12" Name="sharpSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="14" Name="gammaSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                        <Slider Grid.Column="2" Grid.Row="16" Name="whiteBalSlider" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Advanced" >
+                    <Grid Background="{DynamicResource BackgroundBrush}" Margin="0 20 0 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="40" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="15" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                            <RowDefinition Height="10" />
+                            <RowDefinition Height="AUTO" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Foreground="{DynamicResource LabelForegroundBrush}" Content="Power Line Frequency (Anti-Flicker)" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        <control:Selection Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Props="Disabled*50 Hz*60 Hz*Auto" x:Name="powerLineFreqSelection" HorizontalAlignment="Center" />
+                        <Label Grid.Row="4" Grid.Column="0" Foreground="{DynamicResource LabelForegroundBrush}"  Content="Backlight Compensation" VerticalAlignment="Center" />
+                        <control:Selection Grid.Row="4" Grid.Column="1" Props="Off*On" x:Name="backLightCompSelection" HorizontalAlignment="Center" />
+                        <Label Grid.Row="6" Grid.Column="0" Foreground="{DynamicResource LabelForegroundBrush}" Content="Focus" Margin="0,0,40,0" VerticalAlignment="Center" />
+                        <Slider Grid.Row="6" Grid.Column="1" Name="focusSlider" VerticalAlignment="Center" />
+                        <Label Grid.Row="8" Grid.Column="0" Foreground="{DynamicResource LabelForegroundBrush}" Content="Zoom" Margin="0,0,40,0" VerticalAlignment="Center" />
+                        <Slider Grid.Row="8" Grid.Column="1" Name="zoomSlider" VerticalAlignment="Center" />
+                        <Label Grid.Row="10" Grid.Column="0" Foreground="{DynamicResource LabelForegroundBrush}" Content="Pan" Margin="0,0,40,0" VerticalAlignment="Center" />
+                        <Slider Grid.Row="10" Grid.Column="1" Name="panSlider" VerticalAlignment="Center" />
+                        <Label Grid.Row="12" Grid.Column="0" Foreground="{DynamicResource LabelForegroundBrush}" Content="Tilt" Margin="0,0,40,0" VerticalAlignment="Center" />
+                        <Slider Grid.Row="12" Grid.Column="1" Name="tiltSlider" VerticalAlignment="Center" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Preferences">
+                    <Grid Background="{DynamicResource BackgroundBrush}" Margin="0 20 0 20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="370*"/>
+                            <ColumnDefinition Width="139*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.ColumnSpan="2">
+                            <CheckBox FlowDirection="RightToLeft" HorizontalAlignment="Left" Name="hideIconCheckBox" Checked="hideIconCheckBox_Checked" Unchecked="hideIconCheckBox_Unchecked" Margin="0 0 0 20" Focusable="False">
+                                <TextBlock Text="Hide Menu Bar Icon " FlowDirection="LeftToRight" Foreground="{DynamicResource LabelForegroundBrush}" />
+                            </CheckBox>
+                            <Label Content="Read auto settings from webcam" Margin="0 0 0 10" Foreground="{DynamicResource LabelForegroundBrush}" />
+                            <ComboBox Name="readSettingsComboBox" SelectionChanged="readSettingsComboBox_SelectionChanged" ItemsSource="{DynamicResource SettingsComboBoxItems}" SelectedIndex="0"  Margin="0 0 0 20" />
+                            <Label Content="Write every settings to webcam"  Margin="0 0 0 10" Foreground="{DynamicResource LabelForegroundBrush}" />
+                            <ComboBox Name="writeSettingsComboBox" SelectionChanged="writeSettingsComboBox_SelectionChanged" ItemsSource="{DynamicResource SettingsComboBoxItems}" SelectedIndex="0"  Margin="0 0 0 20" />
+                            <Button Content="Camera Preview" 
+                                    BorderThickness="0"
+                                    HorizontalAlignment="Center"
+                                    Padding="10"
+                                    Width="200"
+                                    Foreground="White"
+                                    Background="#7594FF"
+                                    Name="cameraPreviewButton"
+                                    Click="cameraPreviewButton_Click"
+                                    Margin="0 0 0 20"
+                                    Focusable="False">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Grid.Row="4" Margin="40 0 40 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+                <RowDefinition Height="AUTO" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0 0 0 20">
+                <Label Grid.Column="1" Content="Manage Profile" FontWeight="Bold" Foreground="{DynamicResource LabelForegroundBrush}" />
+            </Grid>
+            <Border Grid.Row="1" CornerRadius="20" Padding="10" Background="#E5E3E3">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Save New Profile" Name="saveProfileButton" Click="saveProfileButton_Click" Margin="10 0 10 0" Background="#C9C9C9" BorderThickness="0" Focusable="False">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="1" Content="Update Profile" Name="updateProfileButton" Click="updateProfileButton_Click" Margin="10 0 10 0" Background="#C9C9C9" BorderThickness="0" Focusable="False">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="2" Content="Delete Profile" Name="deleteProfileButton" Click="deleteProfileButton_Click" Margin="10 0 10 0" Background="#C9C9C9" BorderThickness="0" Focusable="False">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Grid.Column="3" Content="Load at Start" Name="loadProfileButton" Click="loadProfileButton_Click" Margin="10 0 10 0" Background="#C9C9C9" BorderThickness="0" Focusable="False">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+                </Grid>
+            </Border>
+            <Grid Grid.Row="2" Margin="0 20 0 30">
+                <ComboBox Name="profileComboBox" SelectionChanged="profileComboBox_SelectionChanged" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
